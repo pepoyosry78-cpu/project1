@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="احجز رحلتك أو غرفتك الفندقية بسهولة مع رِحال.">
+  <title>احجز رحلتك | رِحال</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="tours.html" aria-label="رِحال - الصفحة الرئيسية"><span class="brand-mark">ر</span><span>رِحال<span class="brand-dot">.</span></span></a>
+    <button class="menu-toggle" type="button" aria-label="فتح القائمة" aria-expanded="false">☰</button>
+    <nav class="main-nav" aria-label="القائمة الرئيسية">
+      <a href="tours.html">الرئيسية</a><a class="active" href="booking.html">احجز رحلتك</a><a href="offers.html">الأسعار والعروض</a><a class="nav-contact" href="booking.html">ابدأ الحجز <span aria-hidden="true">←</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-banner booking-banner">
+      <div class="page-banner-content"><span class="eyebrow eyebrow-light"><span class="eyebrow-line"></span> حجزتك في كام خطوة</span><h1>اختار اللي يناسبك.</h1><p>رحلة جديدة ولا إقامة مريحة؟ خطط لتفاصيلك من هنا.</p></div>
+    </section>
+    <section class="booking-layout section-wrap">
+      <div class="booking-main">
+        <div class="booking-tabs" role="tablist" aria-label="نوع الحجز">
+          <button class="booking-tab active" type="button" role="tab" aria-selected="true" data-booking-type="trip"><span class="tab-icon">✈</span> حجز رحلة</button>
+          <button class="booking-tab" type="button" role="tab" aria-selected="false" data-booking-type="hotel"><span class="tab-icon">⌂</span> حجز فندق</button>
+        </div>
+        <form class="booking-form" id="booking-form">
+          <input type="hidden" name="bookingType" id="booking-type" value="trip">
+          <div class="form-section-title"><span class="step-number">١</span><div><h2>تفاصيل الحجز</h2><p>قول لنا بتحب تسافر فين وإمتى.</p></div></div>
+          <div class="form-grid">
+            <label class="field field-wide">الوجهة
+              <select id="destination" name="destination" required>
+                <option value="">اختار وجهتك</option>
+                <option value="القاهرة">القاهرة</option><option value="الأقصر وأسوان">الأقصر وأسوان</option><option value="شرم الشيخ">شرم الشيخ</option><option value="دهب">دهب</option><option value="الإسكندرية">الإسكندرية</option><option value="تاج محل - الهند">تاج محل - الهند</option><option value="الصين">الصين</option>
+              </select>
+            </label>
+            <label class="field">تاريخ السفر
+              <input id="travel-date" name="travelDate" type="date" required>
+            </label>
+            <label class="field">عدد الأفراد
+              <select id="travelers" name="travelers">
+                <option value="1">فرد واحد</option><option value="2" selected>فردان</option><option value="3">٣ أفراد</option><option value="4">٤ أفراد</option><option value="5">٥ أفراد</option><option value="6">٦ أفراد</option>
+              </select>
+            </label>
+            <label class="field" id="nights-field" hidden>عدد الليالي
+              <select id="nights" name="nights"><option value="1">ليلة واحدة</option><option value="2" selected>ليلتان</option><option value="3">٣ ليالي</option><option value="4">٤ ليالي</option><option value="5">٥ ليالي</option><option value="7">أسبوع</option></select>
+            </label>
+            <label class="field" id="room-field" hidden>نوع الغرفة
+              <select id="room-type" name="roomType"><option value="standard">غرفة قياسية</option><option value="deluxe">غرفة ديلوكس</option><option value="suite">جناح</option></select>
+            </label>
+            <label class="field" id="rooms-field" hidden>عدد الغرف
+              <select id="rooms" name="rooms"><option value="1">غرفة واحدة</option><option value="2">غرفتان</option><option value="3">٣ غرف</option><option value="4">٤ غرف</option></select>
+            </label>
+          </div>
+          <div class="form-section-title form-section-second"><span class="step-number">٢</span><div><h2>بيانات التواصل</h2><p>هنبعت لك تفاصيل الحجز على بياناتك.</p></div></div>
+          <div class="form-grid">
+            <label class="field">الاسم بالكامل<input name="name" type="text" placeholder="اكتب اسمك" autocomplete="name" required></label>
+            <label class="field">رقم الموبايل<input name="phone" type="tel" placeholder="01xxxxxxxxx" autocomplete="tel" pattern="[\+0-9\s-]{8,}" required></label>
+            <label class="field field-wide">البريد الإلكتروني<input name="email" type="email" placeholder="name@example.com" autocomplete="email" required></label>
+          </div>
+          <label class="field notes-field">ملاحظات إضافية <span class="optional">(اختياري)</span><textarea name="notes" rows="3" placeholder="فيه أي طلبات خاصة؟"></textarea></label>
+          <button class="button button-dark submit-booking" type="submit">أكد طلب الحجز <span aria-hidden="true">←</span></button>
+          <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+      <aside class="booking-aside">
+        <div class="summary-card">
+          <span class="summary-kicker">ملخص حجزك</span><h2>خطوة صغيرة<br>لرحلة كبيرة.</h2>
+          <div class="summary-line"><span>نوع الحجز</span><strong id="summary-type">رحلة سياحية</strong></div>
+          <div class="summary-line"><span>عدد الأفراد</span><strong id="summary-travelers">فردان</strong></div>
+          <div class="summary-line" id="summary-nights-row" hidden><span>عدد الليالي</span><strong id="summary-nights">ليلتان</strong></div>
+          <div class="summary-line" id="summary-rooms-row" hidden><span>عدد الغرف</span><strong id="summary-rooms">غرفة واحدة</strong></div>
+          <div class="summary-price"><span>الإجمالي التقديري</span><strong id="estimated-price">٩٬٠٠٠ <small>ج.م</small></strong></div>
+          <p class="summary-disclaimer">السعر التقديري لإجمالي الحجز. هنتواصل معاك لتأكيد التوفر والتكلفة النهائية.</p>
+        </div>
+        <div class="help-card"><span class="help-icon">؟</span><div><strong>محتاج مساعدة؟</strong><p>فريق رِحال جاهز يساعدك تختار.</p><span class="help-link">هنساعدك في تأكيد التفاصيل</span></div></div>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand brand-footer" href="tours.html"><span class="brand-mark">ر</span><span>رِحال<span class="brand-dot">.</span></span></a><p>رحلتك تبدأ من هنا.</p>
+    <div class="footer-links"><a href="tours.html">عن رِحال</a><a href="booking.html">الحجز</a><a href="offers.html">الأسعار</a></div><span class="copyright">© ٢٠٢٦ رِحال للسفر والسياحة</span>
+  </footer>
+</body>
+</html>
